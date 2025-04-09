@@ -16,6 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <title>Imsu-Admin-Dashboard-next-dashboard</title>
     
       <body className={inter.className}>{children}</body>
     </html>
