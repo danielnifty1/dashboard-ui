@@ -1,4 +1,4 @@
-# Lama Dev School Management Dashboard
+# Imsu-Admin-Dashboard-next-dashboard
 
 ## Getting Started
 
