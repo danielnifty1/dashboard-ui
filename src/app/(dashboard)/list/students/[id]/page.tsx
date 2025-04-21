@@ -6,7 +6,7 @@ import Link from "next/link";
 import CountChart from "@/components/CountChart";
 import Performance from "@/components/Perfomance";
 
-const SingleTeacherPage = () => {
+const SingleStudentPage = () => {
   return (
     <div className="flex-1 p-4 flex flex-col xl:flex-row gap-4   ">
       {/* LEFT SIDE */}
@@ -27,7 +27,7 @@ const SingleTeacherPage = () => {
             </div>
             {/* teacher info */}
             <div className="flex flex-col gap-4 w-2/3 justify-between">
-              <h1 className="font-semibold text-lg ">Dean Guerrero</h1>
+              <h1 className="font-semibold text-lg ">Esther Morgan</h1>
               <p className="text-gray-500 text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
@@ -62,7 +62,7 @@ const SingleTeacherPage = () => {
                     alt=""
                     className=""
                   />
-                  <span>user@gmail.com</span>
+                  <span>student@gmail.com</span>
                 </div>
 
                 <div className="w-full md:w-1/3 lg:w-full 2xl:w-1/3 flex gap-2 items-center">
@@ -143,7 +143,7 @@ const SingleTeacherPage = () => {
         </div>
 
         <div className="mt-4 rounded-md p-4 h-[800px]">
-            <h1>Teacher&apos;s schedule</h1>
+            <h1 className="font-semibold text-lg">Student&apos;s schedule</h1>
 
             <BigCalendar />
             
@@ -157,19 +157,19 @@ const SingleTeacherPage = () => {
         <div className="flex flex-wrap gap-4 text-xs textgray-500 justify-start items-center">
            
                 <Link href="" className="rounded-md p-3 bg-lamaSkyLight ">
-                    Teacher&apos;s classes
+                    Student&apos;s Lessons
                 </Link>
                 <Link href="" className="rounded-md p-3 bg-lamaPurpleLight ">
-                    Teacher&apos;s Students
+                    Student&apos;s Teachers
                 </Link>
                 <Link href="" className="rounded-md p-3 bg-lamaYellowLight ">
-                    Teacher&apos;s Lesson
+                    Student&apos;s Results
                 </Link>
                 <Link href="" className="rounded-md p-3 bg-pink-50 ">
-                    Teacher&apos;s Exams
+                    Student&apos;s Exams
                 </Link>
                 <Link href="" className="rounded-md p-3 bg-lamaSkyLight ">
-                    Teacher&apos;s Assignments
+                    Student&apos;s Assignments
                 </Link>
 
             
@@ -190,4 +190,4 @@ const SingleTeacherPage = () => {
   );
 };
 
-export default SingleTeacherPage;
+export default SingleStudentPage;

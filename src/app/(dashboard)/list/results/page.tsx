@@ -5,6 +5,7 @@ import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import Link from "next/link";
 import { role, resultsData } from "@/lib/data";
+import FormModal from "@/components/FormModal";
 const Roles={
     ADMIN:"ADMIN",
     STUDENT:"STUDENT",
@@ -92,9 +93,11 @@ const ResultListPage = () => {
 
           {
             role.ADMIN===Roles.ADMIN && (
-              <button className="flex justify-center items-center rounded-full w-7 h-7 bg-lamaPurple">
-              <Image src="/delete.png" width={16} height={16} alt="" />
-            </button>
+            //   <button className="flex justify-center items-center rounded-full w-7 h-7 bg-lamaPurple">
+            //   <Image src="/delete.png" width={16} height={16} alt="" />
+            // </button>
+
+            <FormModal table="result" type="delete" id={item.id} />
             )
           }
         </div>
@@ -107,22 +110,27 @@ const ResultListPage = () => {
 
       <div className="flex justify-between items-center ">
         <h1 className="hidden lg:block md:block font-semibold text-lg">
-          All Parents
+          All Results
         </h1>
         <div className="flex flex-col lg:flex-row md:flex-row items-center w-full md:w-auto gap-4">
           <TableSearch />
           <div className="flex gap-2 self-end">
-            <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden p-1 ">
-              <Image src="/filter.png" width={14} height={14} alt="filter" />
+            <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden flex w-8 h-8 ">
+              <Image src="/filter.png" width={16} height={16} alt="filter" />
             </button>
 
-            <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden p-1 ">
-              <Image src="/sort.png" width={14} height={14} alt="filter" />
+            <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden flex w-8 h-8 ">
+              <Image src="/sort.png" width={16} height={16} alt="filter" />
             </button>
 
-           { role.ADMIN===Roles.ADMIN &&( <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden p-1 ">
-              <Image src="/plus.png" width={14} height={14} alt="filter" />
-            </button>)}
+           { role.ADMIN===Roles.ADMIN &&( 
+            
+            // <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden p-1 ">
+            //   <Image src="/plus.png" width={14} height={14} alt="filter" />
+            // </button>
+            <FormModal table="result" type="create"  />
+        
+        )}
           </div>
         </div>
       </div>

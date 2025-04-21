@@ -5,6 +5,7 @@ import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import Link from "next/link";
 import { role, announcementsData } from "@/lib/data";
+import FormModal from "@/components/FormModal";
 const Roles={
     ADMIN:"ADMIN",
     STUDENT:"STUDENT",
@@ -62,17 +63,18 @@ const AnnouncementsListPage = () => {
 
       <td>
         <div className="flex gap-2 items-center">
-          <Link href={`/list/teacher/${item.id}`} className="">
+          {/* <Link href={`/list/teacher/${item.id}`} className="">
             <button className="flex justify-center items-center rounded-full w-7 h-7 bg-lamaSky">
               <Image src="/edit.png" width={16} height={16} alt="" />
             </button>
-          </Link>
-
+          </Link> */}
+    <FormModal table="announcement" type="update" data={item} />
           {
             role.ADMIN===Roles.ADMIN && (
-              <button className="flex justify-center items-center rounded-full w-7 h-7 bg-lamaPurple">
-              <Image src="/delete.png" width={16} height={16} alt="" />
-            </button>
+            //   <button className="flex justify-center items-center rounded-full w-7 h-7 bg-lamaPurple">
+            //   <Image src="/delete.png" width={16} height={16} alt="" />
+            // </button>
+            <FormModal table="announcement" type="delete" id={item.id} />
             )
           }
         </div>
@@ -98,9 +100,13 @@ const AnnouncementsListPage = () => {
               <Image src="/sort.png" width={14} height={14} alt="filter" />
             </button>
 
-           { role.ADMIN===Roles.ADMIN &&( <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden p-1 ">
-              <Image src="/plus.png" width={14} height={14} alt="filter" />
-            </button>)}
+           { role.ADMIN===Roles.ADMIN &&( 
+            // <button className="bg-lamaYellow rounded-full items-center justify-center overflow-hidden p-1 ">
+            //   <Image src="/plus.png" width={14} height={14} alt="filter" />
+            // </button>
+
+            <FormModal table="announcement" type="create"  />
+        )}
           </div>
         </div>
       </div>

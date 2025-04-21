@@ -1,3 +1,4 @@
+"use client"
 const menuItems = [
   {
     title: "MENU",
@@ -114,11 +115,27 @@ const menuItems = [
 ];
 
 import Link from "next/link";
+// import { Link } from "react-router-dom";
+
 import React from "react";
 import Image from "next/image";
 import { role } from "@/lib/data";
+import { usePathname } from "next/navigation";
+import {cn} from "../lib/utils"
 
-const Menu = () => {
+
+const Menu = ({ 
+   href, 
+  children,
+  className
+}:{
+    href: string,
+    children: React.ReactNode,
+    className?: string
+  }) => {
+    const pathName=usePathname()
+    // const isActive=pathName===href|| pathName.startsWith(href)
+    // console.log("this active status "+pathName)
   return (
     <div className="mt-4 text-sm h-screen mb-10 ">
       {menuItems.map((item) => (
@@ -128,11 +145,15 @@ const Menu = () => {
           {item.items.map((list) => {
             if (list.visible.includes(role.ADMIN)) {
               
+    const isActive=pathName===list.href
+    console.log("this active status "+pathName+" and hfef is "+list.href)
+              
               return (
                 <Link
-                  className="flex justify-start lg:justify-start text-gray-500 items-start p-1 md:px-2 gap-1 ml-4 rounded-md hover:bg-lamaSkyLight hover:text-gray-600 transition-all duration-200 ease-in-out"
+                  className={cn("flex justify-start lg:justify-start text-gray-500 items-start p-1 md:px-2 gap-1 ml-4 rounded-md hover:bg-lamaSkyLight hover:text-gray-600 transition-all duration-200 ease-in-out", isActive && "bg-lamaSkyLight text-gray-500 rounded-none px-0 w-full")}
                   href={list.href}
                   key={list.label}
+               
                 >
                   <Image
                     alt=""
