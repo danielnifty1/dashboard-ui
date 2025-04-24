@@ -5,6 +5,7 @@ import Announcement from "@/components/Announcement";
 import Link from "next/link";
 import CountChart from "@/components/CountChart";
 import Performance from "@/components/Perfomance";
+import FormModal from "@/components/FormModal";
 
 const SingleTeacherPage = () => {
   return (
@@ -27,7 +28,30 @@ const SingleTeacherPage = () => {
             </div>
             {/* teacher info */}
             <div className="flex flex-col gap-4 w-2/3 justify-between">
+            <div className="flex items-center gap-2">
+
+          
               <h1 className="font-semibold text-lg ">Dean Guerrero</h1>
+              
+              <FormModal table="teacher" type="update" 
+              data={
+                {
+                  id: 10,
+                  teacherId: "1234567890",
+                  username:"girame",
+                  bloodType:"A+",
+                  name: "John Glover",
+                  
+                  email: "john@glover.com",
+                  photo:
+                    "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                  phone: "1234567890",
+                  subjects: ["Biology"],
+                  classes: ["5A", "4B", "3C"],
+                  address: "123 Main St, Anytown, USA",
+                }
+              } />
+                </div>
               <p className="text-gray-500 text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>

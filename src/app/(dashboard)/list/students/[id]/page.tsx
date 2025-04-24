@@ -5,6 +5,7 @@ import Announcement from "@/components/Announcement";
 import Link from "next/link";
 import CountChart from "@/components/CountChart";
 import Performance from "@/components/Perfomance";
+import FormModal from "@/components/FormModal";
 
 const SingleStudentPage = () => {
   return (
@@ -27,7 +28,28 @@ const SingleStudentPage = () => {
             </div>
             {/* teacher info */}
             <div className="flex flex-col gap-4 w-2/3 justify-between">
-              <h1 className="font-semibold text-lg ">Esther Morgan</h1>
+              <div className="flex items-center gap-2">
+                <h1 className="font-semibold text-lg ">Esther Morgan</h1>
+                <FormModal
+                  table="student"
+                  type="update"
+                  data={{
+                    id: 10,
+                    teacherId: "1234567890",
+                    username: "girame",
+                    bloodType: "A+",
+                    name: "John Glover",
+
+                    email: "john@glover.com",
+                    photo:
+                      "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                    phone: "1234567890",
+                    subjects: ["Biology"],
+                    classes: ["5A", "4B", "3C"],
+                    address: "123 Main St, Anytown, USA",
+                  }}
+                />
+              </div>
               <p className="text-gray-500 text-sm">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
               </p>
@@ -143,48 +165,38 @@ const SingleStudentPage = () => {
         </div>
 
         <div className="mt-4 rounded-md p-4 h-[800px]">
-            <h1 className="font-semibold text-lg">Student&apos;s schedule</h1>
+          <h1 className="font-semibold text-lg">Student&apos;s schedule</h1>
 
-            <BigCalendar />
-            
+          <BigCalendar />
         </div>
       </div>
 
       {/* RIGHT SIDE */}
       <div className="w-full xl:w-1/3 gap-4 flex flex-col">
-      <div className="bg-white  rounded-md p-4">
-        <h1 className="text-lg font-semibold">Shortcuts</h1>
-        <div className="flex flex-wrap gap-4 text-xs textgray-500 justify-start items-center">
-           
-                <Link href="" className="rounded-md p-3 bg-lamaSkyLight ">
-                    Student&apos;s Lessons
-                </Link>
-                <Link href="" className="rounded-md p-3 bg-lamaPurpleLight ">
-                    Student&apos;s Teachers
-                </Link>
-                <Link href="" className="rounded-md p-3 bg-lamaYellowLight ">
-                    Student&apos;s Results
-                </Link>
-                <Link href="" className="rounded-md p-3 bg-pink-50 ">
-                    Student&apos;s Exams
-                </Link>
-                <Link href="" className="rounded-md p-3 bg-lamaSkyLight ">
-                    Student&apos;s Assignments
-                </Link>
-
-            
-
+        <div className="bg-white  rounded-md p-4">
+          <h1 className="text-lg font-semibold">Shortcuts</h1>
+          <div className="flex flex-wrap gap-4 text-xs textgray-500 justify-start items-center">
+            <Link href="" className="rounded-md p-3 bg-lamaSkyLight ">
+              Student&apos;s Lessons
+            </Link>
+            <Link href="" className="rounded-md p-3 bg-lamaPurpleLight ">
+              Student&apos;s Teachers
+            </Link>
+            <Link href="" className="rounded-md p-3 bg-lamaYellowLight ">
+              Student&apos;s Results
+            </Link>
+            <Link href="" className="rounded-md p-3 bg-pink-50 ">
+              Student&apos;s Exams
+            </Link>
+            <Link href="" className="rounded-md p-3 bg-lamaSkyLight ">
+              Student&apos;s Assignments
+            </Link>
+          </div>
         </div>
 
-      </div>
+        <Performance />
 
-        
-       <Performance />
-
-       
-
-
-      <Announcement />
+        <Announcement />
       </div>
     </div>
   );

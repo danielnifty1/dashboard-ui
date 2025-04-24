@@ -146,7 +146,7 @@ const Menu = ({
             if (list.visible.includes(role.ADMIN)) {
               
     const isActive=pathName===list.href
-    console.log("this active status "+pathName+" and hfef is "+list.href)
+    // console.log("this active status "+pathName+" and hfef is "+list.href)
               
               return (
                 <Link
